@@ -27,23 +27,17 @@ public class Movement {
 
                     appendMovePosition(possibleMoves,movePosition,i);
 
-                    increaseArrayByArray(movePosition,piece.moves[i]);// executes the function
+                    executeTheFunction(movePosition,piece.moves[i]);
                 }
             }
-            else{
+            else{ // move is supposed to only be used finite amount of times ex: Knight
                 for (int j = 0; j < numberOfRepetitions; j++) { // executes the move by the amount of repetitions
 
                     if(isWithinTable(movePosition)){//checks if move is within table
 
-                        possibleMoves.get(i).add(new int[2]);// makes a spot for the position in the collection of possible moves
+                        appendMovePosition(possibleMoves,movePosition,i);
 
-                        int possibleMovesLength = getListLength(possibleMoves.get(i));// gets the amount of positions for the "i" move
-
-                        possibleMoves.get(i).get(possibleMovesLength-1)[0] = movePosition[0];// appends the X position
-
-                        possibleMoves.get(i).get(possibleMovesLength-1)[1] = movePosition[1];// appends the Y position
-
-                        increaseArrayByArray(movePosition,piece.moves[i]);// executes the function
+                        executeTheFunction(movePosition,piece.moves[i]);
                     }
                     else
                         break;
@@ -52,6 +46,10 @@ public class Movement {
         }
 
         return possibleMoves;
+    }
+
+    static void executeTheFunction(int[] movePosition, int[] function){
+        increaseArrayByArray(movePosition,function);// executes the function
     }
 
     static void appendMovePosition(ArrayList<ArrayList<int[]>> possibleMoves, int[] movePosition, int i){
