@@ -3,10 +3,12 @@ package com.jugbub;
 import java.util.ArrayList;
 
 public class Movement {
-    int[][] possibleMoves;
 
+    public static void movement(Piece piece){
+        whereCanMove(piece);
+    }
 
-    public static ArrayList<ArrayList<int[]>> whereCanMove(Piece piece){
+    static ArrayList<ArrayList<int[]>> whereCanMove(Piece piece){
         int numberOfRepetitions; // 0 = infinite ; How many times does the move repeat, ex, knight can only move to 1 square per turn while queen can move over the whole board.
         int numberOfMoves = piece.moves.length; // how many kinds of moves does the piece have.
         ArrayList<ArrayList<int[]>> possibleMoves = new ArrayList<>();//{all the functions with their coordinates in an array{all the coordinates for that function{specific coordinate}}}
