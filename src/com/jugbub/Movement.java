@@ -2,7 +2,7 @@ package com.jugbub;
 
 import java.util.ArrayList;
 
-public class Movement {
+public abstract class Movement {
 
     public static void movement(Piece piece){
         whereCanMove(piece);
