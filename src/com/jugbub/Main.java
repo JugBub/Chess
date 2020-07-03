@@ -33,5 +33,7 @@ public class Main {
         System.out.println("--");
         System.out.println(Arrays.deepToString(Movement.whereCanMove(piece).get(0).toArray()));
         System.out.println("--");
+
+        ReadFile.readFile("pieces.txt");
     }
 }
